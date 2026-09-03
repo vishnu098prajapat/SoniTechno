@@ -43,7 +43,7 @@ export default function Navbar() {
             <Logo light={isDark} />
           </Link>
 
-          <nav className="hidden items-center xl:flex">
+          <nav className="hidden items-center xl:flex gap-1 xl:gap-2.5">
             {nav.map((item) =>
               item.children ? (
                 <div
@@ -53,10 +53,11 @@ export default function Navbar() {
                   onMouseLeave={() => setOpenMenu(null)}
                 >
                   <button
-                    className={`flex items-center gap-1.5 px-4 py-3 text-[14px] font-semibold tracking-tight transition ${openMenu === item.label ? 'text-brand-500' : 'text-ink-950 hover:text-brand-500'
+                    onClick={() => setOpenMenu((prev) => (prev === item.label ? null : item.label))}
+                    className={`flex items-center gap-1 px-2 py-1.5 text-[13px] xl:text-[14px] xl:px-3 font-semibold tracking-tight transition ${openMenu === item.label ? 'text-brand-500' : 'text-ink-950 hover:text-brand-500'
                       }`}
                   >
-                    {item.label}
+                    <span className="whitespace-nowrap inline-block">{item.label}</span>
                     <IconChevron className={`h-3.5 w-3.5 transition-transform ${openMenu === item.label ? 'rotate-180' : ''}`} />
                   </button>
 
@@ -95,9 +96,9 @@ export default function Navbar() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-3 text-[14px] font-semibold tracking-tight text-ink-950 transition hover:text-brand-500"
+                  className="px-2 py-1.5 text-[13px] xl:text-[14px] xl:px-3 font-semibold tracking-tight text-ink-950 transition hover:text-brand-500"
                 >
-                  {item.label}
+                  <span className="whitespace-nowrap inline-block">{item.label}</span>
                 </a>
               ) : (
                 <NavLink
@@ -105,24 +106,24 @@ export default function Navbar() {
                   to={item.to}
                   end={item.to === '/'}
                   className={({ isActive }) =>
-                    `px-4 py-3 text-[14px] font-semibold tracking-tight transition ${isActive ? 'text-brand-500' : 'text-ink-950 hover:text-brand-500'
+                    `px-2 py-1.5 text-[13px] xl:text-[14px] xl:px-3 font-semibold tracking-tight transition ${isActive ? 'text-brand-500' : 'text-ink-950 hover:text-brand-500'
                     }`
                   }
                 >
-                  {item.label}
+                  <span className="whitespace-nowrap inline-block">{item.label}</span>
                 </NavLink>
               )
             )}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 xl:gap-3">
             <ThemeToggle />
-            <Link to="/contact" className="btn-primary hidden !px-6 !py-3 sm:inline-flex">
-              Get a Quote <IconArrow className="h-4 w-4" />
+            <Link to="/contact" className="btn-primary hidden whitespace-nowrap !px-4 !py-2 xl:!px-5 xl:!py-2.5 sm:inline-flex text-[13px] xl:text-sm">
+              Get a Quote <IconArrow className="h-4 w-4 shrink-0" />
             </Link>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="grid h-11 w-11 place-items-center rounded-full border border-ink-200 text-ink-950 transition hover:border-ink-950 xl:hidden"
+              className="grid h-10 w-10 place-items-center rounded-full border border-ink-200 text-ink-950 transition hover:border-ink-950 xl:hidden"
               aria-label="Toggle menu"
             >
               {open ? <IconClose className="h-5 w-5" /> : <IconMenu className="h-5 w-5" />}

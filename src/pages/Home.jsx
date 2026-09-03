@@ -88,22 +88,10 @@ function CountUp({ end, duration = 2000 }) {
 export default function Home() {
   useSeo('Multi Recharge Software Development Company', 'SoniTechno is a professional Multi Recharge Software Development Company in Rajasthan, India — recharge software, AEPS, BBPS, money transfer, APIs, websites and apps.')
   const [i, setI] = useState(0)
-  const [activeSvc, setActiveSvc] = useState(0)
-  const [isSvcHovered, setIsSvcHovered] = useState(false)
-
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % rotating.length), 2800)
     return () => clearInterval(t)
   }, [])
-
-  // Auto-cycle services tabs
-  useEffect(() => {
-    if (isSvcHovered) return
-    const t = setInterval(() => {
-      setActiveSvc((prev) => (prev + 1) % services.length)
-    }, 3500)
-    return () => clearInterval(t)
-  }, [isSvcHovered])
 
   return (
     <>
@@ -117,12 +105,12 @@ export default function Home() {
           <div className="animate-fadeUp">
             <span className="label">Multi Recharge Software Company</span>
 
-            <h1 className="mt-8 h1 text-ink-950">
+            <h1 className="mt-4 sm:mt-6 h1 text-ink-950 dark:text-white">
               Online{' '}
-              <span key={i} className="accent-serif animate-fadeUp text-brand-500">
+              <span key={i} className="accent-serif animate-fadeUp text-brand-500 inline-block">
                 {rotating[i]}
-              </span>
-              <br />
+              </span>{' '}
+              <br className="hidden xl:block" />
               built for your brand.
             </h1>
 
@@ -136,7 +124,7 @@ export default function Home() {
               <Link to="/contact" className="btn-primary">
                 Get a Free Quote <IconArrow className="h-4 w-4" />
               </Link>
-              <a href="#services" className="btn-light flex items-center gap-2 !bg-white !text-ink-950 border border-slate-200 hover:!border-brand-500 hover:!text-brand-500">
+              <a href="#services" className="btn-light flex items-center gap-2 !bg-white dark:!bg-white/10 !text-ink-950 dark:!text-white border border-slate-200 dark:border-white/20 hover:!border-brand-500 hover:!text-brand-500 transition-colors">
                 Explore <IconChevron className="h-4 w-4" />
               </a>
             </div>
@@ -200,116 +188,58 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────  SERVICES  ───────────────────────── */}
-      <section id="services" className="relative overflow-hidden bg-white pt-24 pb-12 sm:pb-24">
-        <div className="pointer-events-none absolute inset-0 grid-lines-dark opacity-50" />
+      <section id="services" className="relative overflow-hidden bg-white dark:bg-[#0a0a0c] pt-20 pb-16 sm:pt-24 sm:pb-24">
+        <div className="pointer-events-none absolute inset-0 grid-lines-dark opacity-30 dark:opacity-10" />
         <div className="w-full px-6 lg:px-12 relative">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <span className="label">What We Do</span>
-              <h2 className="mt-6 h2 text-balance">
+              <h2 className="mt-6 h2 text-balance dark:text-white">
                 Everything your digital business needs, <span className="accent-serif text-brand-500">under one roof</span>
               </h2>
             </div>
-            <p className="max-w-sm lead">
+            <p className="max-w-sm lead dark:text-slate-400">
               Software, portals, apps and APIs — built, branded and supported by a single team in Rajasthan.
             </p>
           </div>
 
-          <div
-            className="mt-12 sm:mt-16 grid gap-6 sm:gap-10 lg:grid-cols-[320px_1fr] xl:grid-cols-[340px_1fr]"
-            onMouseEnter={() => setIsSvcHovered(true)}
-            onMouseLeave={() => setIsSvcHovered(false)}
-          >
-            {/* Left: Service Tabs */}
-            <div className="flex flex-col gap-2">
-              {services.map((s, idx) => {
-                const isActive = activeSvc === idx
-                return (
-                  <button
-                    key={s.title}
-                    onMouseEnter={() => setActiveSvc(idx)}
-                    onClick={() => setActiveSvc(idx)}
-                    className={`group flex items-center justify-between rounded-xl px-5 py-4 text-left transition-all duration-300 ${isActive
-                      ? 'bg-ink-950 text-white shadow-xl shadow-brand-500/10 scale-[1.02]'
-                      : 'bg-white text-ink-950 hover:bg-slate-50'
-                      }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg transition-colors ${isActive ? 'bg-brand-500 text-white' : 'bg-brand-50 text-brand-500'}`}>
-                        <s.icon className="h-5 w-5" />
-                      </div>
-                      <span className={`font-bold text-[15px] ${isActive ? 'text-white' : 'text-ink-950'}`}>
-                        {s.title}
-                      </span>
-                    </div>
-                    <IconArrow className={`h-4 w-4 transition-all ${isActive ? 'translate-x-1 text-brand-500' : 'text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1'}`} />
-                  </button>
-                )
-              })}
-            </div>
+          <div className="mt-10 sm:mt-16 grid gap-4 sm:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+            {services.map((s) => (
+              <Link
+                key={s.title}
+                to={s.to}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-6 lg:p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-brand-500/50 hover:shadow-[0_20px_40px_rgba(230,46,46,0.12)] dark:border-white/10 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] dark:hover:border-brand-500/40"
+              >
+                {/* Top Animated Gradient Line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500/0 via-brand-500 to-brand-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            {/* Right: Active Service Display */}
-            <div className={`relative flex items-center justify-center w-full h-auto sm:h-[400px] md:h-[450px] lg:h-[580px] xl:h-[640px] overflow-hidden rounded-2xl sm:rounded-[2rem] lg:rounded-[3rem] shadow-2xl ${services[activeSvc].image ? 'bg-transparent' : 'bg-ink-950 p-8 sm:p-12'}`}>
-              {!services[activeSvc].image && (
-                <>
-                  <div className="absolute inset-0 bg-brand-500/5" />
-                  <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-500/20 blur-[80px]" />
-                  <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-blue-500/20 blur-[80px]" />
-                </>
-              )}
+                {/* Glow accent */}
+                <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-500/0 blur-2xl transition-all duration-500 group-hover:bg-brand-500/20" />
 
-              {services[activeSvc].image ? (
-                /* Full Image Display */
-                <Link to={services[activeSvc].to} className="relative flex items-center justify-center w-full h-full group cursor-pointer pointer-events-auto">
-                  <img
-                    key={`img-${activeSvc}`}
-                    src={services[activeSvc].image}
-                    alt={services[activeSvc].title}
-                    className="w-full h-auto sm:h-full object-contain sm:object-cover lg:scale-[1.02] animate-fadeUp transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                  {/* Hover Button */}
-                  <div className="absolute top-8 right-8 z-20 flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-bold text-white shadow-xl shadow-brand-500/30 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                    Explore Solution <IconArrow className="h-4 w-4" />
-                  </div>
-                </Link>
-              ) : (
-                /* Text and Fallback Display */
-                <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_1fr] items-center w-full h-full">
-                  {/* Text Content */}
-                  <div className="flex flex-col items-start text-left max-w-lg">
-                    {/* Dynamic Icon */}
-                    <div key={`icon-${activeSvc}`} className="mb-6 grid h-14 w-14 sm:h-16 sm:w-16 place-items-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-600 text-white shadow-lg shadow-brand-500/30 animate-fadeUp">
-                      {(() => {
-                        const ActiveIcon = services[activeSvc].icon
-                        return <ActiveIcon className="h-7 w-7 sm:h-8 sm:w-8" />
-                      })()}
-                    </div>
-
-                    <h3 key={`title-${activeSvc}`} className="h3 text-white text-[1.5rem] sm:text-[2rem] leading-tight animate-fadeUp" style={{ animationDelay: '100ms' }}>
-                      {services[activeSvc].title}
-                    </h3>
-
-                    <p key={`text-${activeSvc}`} className="mt-4 text-[1rem] sm:text-[1.0625rem] leading-relaxed text-slate-300 animate-fadeUp" style={{ animationDelay: '150ms' }}>
-                      {services[activeSvc].text}
-                    </p>
-
-                    <div key={`btn-${activeSvc}`} className="animate-fadeUp" style={{ animationDelay: '200ms' }}>
-                      <Link to={services[activeSvc].to} className="btn-primary mt-8 !bg-white !text-ink-950 hover:!bg-brand-500 hover:!text-white">
-                        Explore Solution <IconArrow className="h-4 w-4" />
-                      </Link>
-                    </div>
+                <div>
+                  {/* Icon */}
+                  <div className="grid h-10 w-10 sm:h-12 sm:w-12 place-items-center rounded-xl sm:rounded-2xl bg-brand-50 text-brand-500 transition-all duration-300 group-hover:bg-brand-500 group-hover:text-white group-hover:rotate-6 group-hover:scale-110 shadow-md shadow-brand-500/10 dark:bg-white/10 dark:text-brand-400">
+                    <s.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
 
-                  {/* Decorative Content (Clickable) */}
-                  <Link to={services[activeSvc].to} className="hidden lg:flex relative h-full w-full items-center justify-center group cursor-pointer pointer-events-auto">
-                    <div className="relative flex flex-col gap-4 opacity-10 w-full h-full justify-center items-end pr-10">
-                      <div className="w-40 h-40 border-2 border-white rounded-full animate-floaty" />
-                      <div className="w-24 h-24 border-2 border-white rounded-full mr-16 animate-floaty" style={{ animationDelay: '1s' }} />
-                    </div>
-                  </Link>
+                  {/* Title */}
+                  <h3 className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg font-bold tracking-tight text-ink-950 dark:text-white group-hover:text-brand-500 transition-colors line-clamp-1">
+                    {s.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="mt-1.5 sm:mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {s.text}
+                  </p>
                 </div>
-              )}
-            </div>
+
+                {/* Footer link */}
+                <div className="mt-5 sm:mt-8 flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-brand-500 group-hover:text-brand-600">
+                  <span>Explore</span>
+                  <IconArrow className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

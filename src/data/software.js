@@ -5,7 +5,7 @@ export const software = {
     section: 'software',
     title: 'Mobile Recharge Software Development — B2B, B2C and White Label',
     kicker: 'Software',
-    image: '/images/pages/Recharge_api.png',
+    image: '/images/pages/Recharge_api_.jpg',
     lead:
       'Mobile phones have become essential to modern life, and mobile recharge services follow suit. Technology has made previously difficult tasks possible online — including recharging a mobile through a digital platform.',
     blocks: [

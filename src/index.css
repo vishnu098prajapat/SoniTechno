@@ -15,14 +15,14 @@ body { @apply bg-white font-sans text-ink-500 overflow-x-hidden; }
 ::-webkit-scrollbar-thumb:hover { background: #e62e2e; }
 
 @layer components {
-  .container-x { @apply mx-auto w-full max-w-[1440px] px-6 lg:px-12; }
+  .container-x { @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8; }
 
   /* ---------- type ---------- */
   .display {
     @apply font-sans font-extrabold tracking-tighter text-ink-950;
   }
   .accent-serif { @apply font-serif font-normal italic tracking-normal; }
-  .h1 { @apply display text-[2.6rem] leading-[1.03] sm:text-6xl lg:text-[4.6rem]; }
+  .h1 { @apply display text-[2.4rem] leading-[1.08] sm:text-5xl lg:text-[3.4rem] xl:text-[4rem]; }
   .h2 { @apply display text-3xl leading-[1.08] sm:text-[2.75rem]; }
   .h3 { @apply font-sans text-lg font-bold tracking-tight text-ink-950; }
   .lead { @apply text-[1.0625rem] leading-relaxed text-slate-400; }
@@ -38,7 +38,7 @@ body { @apply bg-white font-sans text-ink-500 overflow-x-hidden; }
 
   /* ---------- buttons ---------- */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold tracking-tight whitespace-nowrap transition-all duration-300;
   }
   .btn-primary { @apply btn bg-brand-500 text-white shadow-red hover:bg-brand-600 hover:-translate-y-0.5; }
   .btn-dark { @apply btn bg-ink-950 text-white hover:bg-ink-800 hover:-translate-y-0.5; }

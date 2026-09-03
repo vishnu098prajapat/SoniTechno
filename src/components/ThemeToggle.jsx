@@ -11,7 +11,7 @@ export default function ThemeToggle({ className = '' }) {
       role="switch"
       aria-checked={isDark}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`group relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full border transition-all duration-300 ${
+      className={`group relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full border transition-all duration-300 ${
         isDark
           ? 'border-brand-500/30 bg-white/5 hover:border-brand-500 hover:bg-brand-500/10 hover:shadow-[0_0_15px_rgba(230,46,46,0.2)]'
           : 'border-ink-200 text-ink-950 hover:border-brand-500 hover:text-brand-500 hover:shadow-[0_4px_12px_rgba(230,46,46,0.1)]'
@@ -21,7 +21,7 @@ export default function ThemeToggle({ className = '' }) {
       <svg
         viewBox="0 0 24 24"
         fill="none"
-        className={`absolute h-[19px] w-[19px] text-brand-500 transition-all duration-500 ${
+        className={`absolute h-4 w-4 text-brand-500 transition-all duration-500 ${
           isDark ? '-rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
         }`}
       >
@@ -35,7 +35,7 @@ export default function ThemeToggle({ className = '' }) {
       <svg
         viewBox="0 0 24 24"
         fill="none"
-        className={`absolute h-[18px] w-[18px] text-brand-400 transition-all duration-500 ${
+        className={`absolute h-4 w-4 text-brand-400 transition-all duration-500 ${
           isDark ? 'rotate-0 scale-100 opacity-100' : 'rotate-90 scale-0 opacity-0'
         }`}
       >

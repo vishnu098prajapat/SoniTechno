@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function PageHero({ kicker, title, lead, crumbs = [], index, image, compact }) {
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-br from-slate-50 to-white pt-16 text-ink-950 sm:pt-20 dark:from-[#0a0a0c] dark:to-[#141417] dark:text-white ${compact ? 'pb-8' : 'pb-16 sm:pb-20 border-b border-slate-200 shadow-sm dark:border-ink-200'}`}>
+    <section className={`relative overflow-hidden bg-gradient-to-br from-slate-50 to-white pt-10 sm:pt-14 text-ink-950 dark:from-[#0a0a0c] dark:to-[#141417] dark:text-white ${compact ? 'pb-6' : 'pb-10 sm:pb-14 border-b border-slate-200 shadow-sm dark:border-ink-200'}`}>
       {/* Decorative Elements */}
       <div className="pointer-events-none absolute inset-0 grid-lines-dark opacity-10 dark:opacity-5" />
       <div className="pointer-events-none absolute top-0 left-1/4 h-full w-full bg-[radial-gradient(ellipse_at_center,rgba(223,60,60,0.05),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(223,60,60,0.1),transparent_70%)]" />
@@ -10,7 +10,7 @@ export default function PageHero({ kicker, title, lead, crumbs = [], index, imag
       <div className="pointer-events-none absolute -bottom-40 left-0 h-[30rem] w-[30rem] rounded-full bg-purple-500/5 blur-[100px] dark:bg-purple-500/10" />
 
       <div className="w-full px-6 lg:px-12 relative">
-        <nav className="flex flex-wrap items-center gap-2 text-[12.5px] text-slate-500 mb-8 font-medium tracking-wide uppercase dark:text-slate-400">
+        <nav className="flex flex-wrap items-center gap-2 text-[12px] text-slate-500 mb-6 font-medium tracking-wide uppercase dark:text-slate-400">
           <Link to="/" className="hover:text-brand-500 transition-colors">Home</Link>
           {crumbs.map((c, i) => (
             <span key={c} className="flex items-center gap-2">
@@ -20,15 +20,15 @@ export default function PageHero({ kicker, title, lead, crumbs = [], index, imag
           ))}
         </nav>
 
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-12 lg:gap-20">
-          <div className="flex-1 max-w-5xl z-10">
-            {kicker && <span className="label mb-4">{kicker}</span>}
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-14">
+          <div className="flex-1 max-w-4xl z-10">
+            {kicker && <span className="label mb-3">{kicker}</span>}
             {title && (
-              <h1 className="mt-4 display text-balance text-[2.5rem] leading-[1.1] sm:text-[4rem] lg:text-[4.5rem] text-transparent bg-clip-text bg-gradient-to-r from-ink-950 via-ink-800 to-slate-600 dark:from-white dark:via-slate-200 dark:to-slate-400 drop-shadow-sm pb-2">
+              <h1 className="mt-2 display text-balance text-[2rem] leading-[1.12] sm:text-[2.75rem] lg:text-[3.25rem] xl:text-[3.6rem] text-transparent bg-clip-text bg-gradient-to-r from-ink-950 via-ink-800 to-slate-600 dark:from-white dark:via-slate-200 dark:to-slate-400 drop-shadow-sm pb-1">
                 {title}
               </h1>
             )}
-            {lead && <p className="mt-8 max-w-3xl text-lg sm:text-xl leading-relaxed text-slate-500 border-l-4 border-brand-500 pl-6">{lead}</p>}
+            {lead && <p className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-500 dark:text-slate-400 border-l-4 border-brand-500 pl-4 sm:pl-5">{lead}</p>}
           </div>
 
           {/* Right Side - Image or Index Watermark */}

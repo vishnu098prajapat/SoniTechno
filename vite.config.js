@@ -3,9 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    outDir: 'build',
+  },
   server: {
     watch: {
-      ignored: ['**/*.~tmp', '**/*.tmp'],
+      ignored: ['**/*.~tmp', '**/*.tmp', '**/*.zip', '**/build/**', '**/dist/**'],
     },
   },
 })

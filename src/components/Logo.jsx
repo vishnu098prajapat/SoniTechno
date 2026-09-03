@@ -9,7 +9,7 @@ export default function Logo({ light = false, compact = false }) {
       <img 
         src="/images/logo.png" 
         alt="SoniTechno - A complete IT solution" 
-        className={`w-auto object-contain ${compact ? 'h-10' : 'h-14'}`}
+        className={`w-auto object-contain ${compact ? 'h-9' : 'h-10 sm:h-12'}`}
       />
     </div>
   )
