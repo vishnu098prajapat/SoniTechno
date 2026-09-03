@@ -1,1 +1,0 @@
-import{r as n}from"./index-CLum61yW.js";const c="SoniTechno — a complete IT solution";function m(t,o){n.useEffect(()=>{if(document.title=t?`${t} | SoniTechno`:c,o){let e=document.querySelector('meta[name="description"]');e||(e=document.createElement("meta"),e.setAttribute("name","description"),document.head.appendChild(e)),e.setAttribute("content",o)}},[t,o])}export{m as u};

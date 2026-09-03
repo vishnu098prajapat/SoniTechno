@@ -11,10 +11,10 @@ import {
 import useSeo from '../hooks/useSeo.js'
 
 const rotating = [
-  'Mobile Recharge Software',
-  'Utility Bill Payments',
-  'Direct Money Transfer',
-  'AEPS & BBPS Portals',
+  'Recharge Software',
+  'Money Transfer',
+  'AEPS & BBPS',
+  'Utility Payments',
 ]
 
 const services = [
@@ -101,26 +101,26 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-52 -top-40 h-[38rem] w-[38rem] rounded-full bg-brand-500/10 blur-[130px]" />
         <div className="pointer-events-none absolute -right-32 top-32 h-[26rem] w-[26rem] rounded-full bg-brand-500/5 blur-[110px]" />
 
-        <div className="w-full px-6 lg:px-12 relative grid items-center gap-16 pb-20 pt-10 lg:grid-cols-[1.15fr_1fr] lg:pb-28 lg:pt-14">
+        <div className="w-full px-4 sm:px-6 lg:px-8 relative grid items-center gap-8 lg:gap-12 pb-10 pt-6 sm:pt-8 lg:grid-cols-[1.15fr_1fr] xl:grid-cols-[1.2fr_1fr] lg:pb-14 lg:pt-10">
           <div className="animate-fadeUp">
             <span className="label">Multi Recharge Software Company</span>
 
-            <h1 className="mt-4 sm:mt-6 h1 text-ink-950 dark:text-white">
+            <h1 className="mt-3 sm:mt-4 h1 text-ink-950 dark:text-white">
               Online{' '}
               <span key={i} className="accent-serif animate-fadeUp text-brand-500 inline-block">
                 {rotating[i]}
               </span>{' '}
-              <br className="hidden xl:block" />
+              <br className="hidden sm:block" />
               built for your brand.
             </h1>
 
-            <p className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-slate-500">
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-[1.0625rem] xl:text-lg leading-relaxed text-slate-500 dark:text-slate-400">
               SoniTechno is a Professional Multi Recharge Software Development Company based in Rajasthan, India — building
               multi-recharge services, API services, white-label portals and custom software with a mobile-responsive,
               user-friendly interface.
             </p>
 
-            <div className="mt-11 flex flex-wrap gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-primary">
                 Get a Free Quote <IconArrow className="h-4 w-4" />
               </Link>
@@ -131,15 +131,15 @@ export default function Home() {
           </div>
 
           {/* Right Side - Animated Hero Images */}
-          <div className="relative flex w-full items-center justify-center h-[280px] sm:h-[400px] lg:h-[450px] xl:h-[550px] z-10 perspective-1000 mt-4 lg:mt-0">
+          <div className="relative flex w-full items-center justify-center h-[240px] sm:h-[340px] lg:h-[400px] xl:h-[480px] z-10 perspective-1000 mt-2 lg:mt-0">
             {/* The dynamic image stack with premium cross-fade */}
             <div className="relative w-[85%] xl:w-[90%] animate-floaty z-20" style={{ animationDuration: '6s' }}>
               <div className="relative aspect-[4/3] w-full">
                 {[
                   '/images/Hero_recharge.png',
-                  '/images/Hero_utility.png',
                   '/images/Hero_DMT2.png',
                   '/images/Hero_AEPS.png',
+                  '/images/Hero_utility.png',
                 ].map((src, idx) => (
                   <img
                     key={src}
